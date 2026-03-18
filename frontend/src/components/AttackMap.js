@@ -23,39 +23,37 @@ return "#ff9999"
 
 }
 
-useEffect(()=>{
+useEffect(() => {
 
-const updateThreats=()=>{
+  const updateThreats = () => {
 
-const updated=cities.map(c=>{
+    const updated = cities.map(c => {
 
-const r=Math.random()
+      const r = Math.random()
 
-let level="Low"
+      let level = "Low"
 
-if(r>0.7) level="High"
-else if(r>0.4) level="Medium"
+      if (r > 0.7) level = "High"
+      else if (r > 0.4) level = "Medium"
 
-return{
+      return {
+        ...c,
+        severity: level
+      }
 
-...c,
-severity:level
+    })
 
-}
+    setThreats(updated)
 
-})
+  }
 
-setThreats(updated)
+  updateThreats()
 
-}
+  const interval = setInterval(updateThreats, 6000)
 
-updateThreats()
+  return () => clearInterval(interval)
 
-const interval=setInterval(updateThreats,6000)
-
-return()=>clearInterval(interval)
-
-},[cities])
+}, [])   // ✅ FIXED HERE
 
 return(
 
