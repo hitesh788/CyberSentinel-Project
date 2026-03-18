@@ -2,16 +2,16 @@ import React,{useEffect,useState} from "react"
 import { MapContainer,TileLayer,CircleMarker,Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 
-function AttackMap(){
+const cities = [
+  { city: "Delhi", lat: 28.61, lon: 77.2 },
+  { city: "Mumbai", lat: 19.07, lon: 72.87 },
+  { city: "Bengaluru", lat: 12.97, lon: 77.59 },
+  { city: "Hyderabad", lat: 17.38, lon: 78.48 },
+  { city: "Chennai", lat: 13.08, lon: 80.27 },
+  { city: "Pune", lat: 18.52, lon: 73.85 },
+];
 
-const cities=[
-{city:"Delhi",lat:28.61,lon:77.20},
-{city:"Mumbai",lat:19.07,lon:72.87},
-{city:"Bengaluru",lat:12.97,lon:77.59},
-{city:"Hyderabad",lat:17.38,lon:78.48},
-{city:"Chennai",lat:13.08,lon:80.27},
-{city:"Pune",lat:18.52,lon:73.85}
-]
+function AttackMap() {
 
 const [threats,setThreats]=useState([])
 
