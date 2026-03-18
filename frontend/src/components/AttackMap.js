@@ -55,7 +55,7 @@ const interval=setInterval(updateThreats,6000)
 
 return()=>clearInterval(interval)
 
-},[])
+},[cities])
 
 return(
 
